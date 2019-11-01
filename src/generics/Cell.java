@@ -4,23 +4,23 @@ package generics;
  * Cell that represent the location in the universe
  */
 public class Cell implements Comparable<Cell> {
-	public int row, col;
+	public byte row, col;
 
-	public Cell(int row, int col) {
+	public Cell(byte row, byte col) {
 		this.row = row;
 		this.col = col;
 	}
 
 	public Cell(String[] pos) {
-		this.row = Integer.parseInt(pos[0]);
-		this.col = Integer.parseInt(pos[1]);
+		this.row = (byte) Integer.parseInt(pos[0]);
+		this.col = (byte) Integer.parseInt(pos[1]);
 	}
 
-	public int getRow() {
+	public byte getRow() {
 		return row;
 	}
 
-	public int getCol() {
+	public byte getCol() {
 		return col;
 	}
 
@@ -31,7 +31,7 @@ public class Cell implements Comparable<Cell> {
 	 * @param cols max columns in the universe
 	 * @return
 	 */
-	public boolean isValid(int rows, int cols) {
+	public boolean isValid(byte rows, byte cols) {
 		return row >= 0 && row < rows && col >= 0 && col < cols;
 	}
 

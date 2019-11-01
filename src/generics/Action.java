@@ -6,26 +6,26 @@ package generics;
 public abstract class Action {
 
 	private String name;
-	private int cost;
+	private byte cost;
 
-	public Action(String name, int cost) {
-		this.name = name.toLowerCase();
+	public Action(String name, byte cost) {
+		this.name = name;
 		this.cost = cost;
 	}
 
-	public abstract Node apply(Node node);
+	public abstract Node act(Node node);
 
-	public int getCost() {
+	public byte getCost() {
 		return cost;
 	}
 
-	public void setCost(int cost) {
+	public void setCost(byte cost) {
 		this.cost = cost;
 	}
 
 	@Override
 	public String toString() {
-		return name;
+		return name.toLowerCase();
 //		return name + "(" + cost + ")";
 	}
 
