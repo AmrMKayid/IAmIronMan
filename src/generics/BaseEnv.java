@@ -1,6 +1,6 @@
 package generics;
 
-import strategies.BaseBuffer;
+import strategies.BaseAgent;
 
 import java.util.ArrayList;
 
@@ -45,11 +45,11 @@ public abstract class BaseEnv {
 	/**
 	 * Generic search method used for searching with different strategies
 	 *
-	 * @param baseBuffer this represent one of the strategies used in the search method
+	 * @param baseAgent this represent one of the strategies used in the search method
 	 * @param visualize  boolean for visualizing the whole solution
 	 * @return sequence of actions that leads to a solution
 	 */
-	public abstract String search(BaseBuffer baseBuffer, boolean visualize);
+	public abstract String search(BaseAgent baseAgent, boolean visualize);
 
 	/**
 	 * Used for printing the solution from the given node
