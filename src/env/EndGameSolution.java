@@ -35,7 +35,7 @@ class EndGameSolution {
 		solutionNodes.add(node);
 	}
 
-	String printSolution() {
+	String getSolution() {
 
 		for (Node node : solutionNodes) {
 			depth = Math.max(depth, node.getDepth());
@@ -65,6 +65,8 @@ class EndGameSolution {
 				EndGameUniverse.render(solutionGrids.get(i));
 				System.out.println("############################################\n");
 			}
+
+			System.out.println("\n\n \033[31m" + "I AM IRONMAN!" + "\033[0m \n\n");
 		}
 
 		return solutionString;
