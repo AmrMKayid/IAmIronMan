@@ -10,7 +10,7 @@ import java.util.TreeMap;
 public abstract class BaseAgent {
 
 	State initialState;
-	Map<State, Integer> previousStates;
+	Map<State, Integer> memory;
 
 	BaseAgent(State initialState) {
 		this.initialState = initialState;
@@ -19,7 +19,7 @@ public abstract class BaseAgent {
 
 
 	void reset() {
-		this.previousStates = new TreeMap<>();
+		this.memory = new TreeMap<>();
 		init();
 		add(new Node(this.initialState, null, null));
 	}

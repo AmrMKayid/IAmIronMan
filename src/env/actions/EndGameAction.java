@@ -9,14 +9,14 @@ import java.util.ArrayList;
 
 public abstract class EndGameAction extends Action {
 
-	public EndGameUniverse universe;
+	EndGameUniverse universe;
 
-	public EndGameAction(String name) {
+	EndGameAction(String name) {
 		super(name, (byte) 0);
 		this.universe = EndGameUniverse.getInstance();
 	}
 
-	public boolean isValidMove(Cell position, EndGameState state) {
+	boolean isValidMove(Cell position, EndGameState state) {
 		boolean validPosition = position.isValid(universe.rows, universe.cols);
 		if (!validPosition) return false;
 
@@ -27,15 +27,14 @@ public abstract class EndGameAction extends Action {
 		return !isWarriorCell && (!isThanosCell || state.getInfinityStones().isEmpty());
 	}
 
-	public boolean hasWarrior(Cell position, EndGameState state) {
+	private boolean hasWarrior(Cell position, EndGameState state) {
 		return state.getWarriorsPositions().contains(position);
 	}
 
 	public int getDamageFromAdj(Cell cell, EndGameState state) {
 		int damage = 0;
 		ArrayList<Cell> adjacentCells = getAdjacentCells(cell);
-		for (int i = 0; i < adjacentCells.size(); i++) {
-			Cell adjCell = adjacentCells.get(i);
+		for (Cell adjCell : adjacentCells) {
 			if (hasWarrior(adjCell, state)) {
 				damage += 1;
 			}
@@ -53,7 +52,7 @@ public abstract class EndGameAction extends Action {
 	}
 
 
-	public ArrayList<Cell> getAdjacentCells(Cell cell) {
+	ArrayList<Cell> getAdjacentCells(Cell cell) {
 		byte[] rows = {1, -1, 0, 0};
 		byte[] cols = {0, 0, 1, -1};
 		byte row = cell.getRow(), col = cell.getCol();

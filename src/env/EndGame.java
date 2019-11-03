@@ -150,7 +150,7 @@ public class EndGame extends BaseEnv {
 	 */
 	@Override
 	public String printSolution(Node node, boolean visualize, int totalNodes) {
-		EndGameSolution solution = new EndGameSolution(visualize, totalNodes);
+		EndGameSolution solution = new EndGameSolution(node, visualize, totalNodes);
 
 		while (node.getParent() != null) {
 			solution.addNode(node);

@@ -6,7 +6,6 @@ import generics.Node;
 import generics.enums.CellType;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 class EndGameSolution {
 
@@ -17,11 +16,12 @@ class EndGameSolution {
 	private ArrayList<Action> solutionActions;
 	private ArrayList<CellType[][]> solutionGrids;
 
-	private int depth;
+	private int cost, depth;
 	private int totalNodes;
 	private boolean visualize;
 
-	EndGameSolution(boolean visualize, int totalNodes) {
+	EndGameSolution(Node node, boolean visualize, int totalNodes) {
+		cost = node.getPathCost();
 		this.totalNodes = totalNodes;
 		this.visualize = visualize;
 		solutionString = "";
@@ -43,20 +43,16 @@ class EndGameSolution {
 			solutionGrids.add(gridFromNode(node));
 		}
 
-		Collections.reverse(solutionActions);
-		for (Action action :
-			solutionActions) {
-			solutionString += (action != null) ? action + "," : "";
+		for (int i = solutionActions.size() - 1; i >= 0; i--) {
+			solutionString += solutionActions.get(i) != null ? solutionActions.get(i) + "," : "";
 			System.out.print(solutionString);
 		}
-		solutionString += ";" + depth + ";" + totalNodes;
+		solutionString += ";" + cost + ";" + totalNodes;
 
 		if (visualize) {
-			System.out.println("\n\n\n############################################");
-			System.out.println("Total number of expanded nodes: " + totalNodes);
-			System.out.println("Depth of the solution: " + depth);
-			System.out.println("############################################");
-			System.out.println();
+			// I really miss python!!!!!!
+			System.out.println("\n\nSolution: " + "Expanded Nodes: " + totalNodes + ", Solution Depth: " + depth + ", Path Cost: " + cost);
+			System.out.println("\n\n");
 
 			for (int i = solutionGrids.size() - 1; i >= 0; i--) {
 				System.out.println(solutionActions.get(i) != null ? solutionActions.get(i)

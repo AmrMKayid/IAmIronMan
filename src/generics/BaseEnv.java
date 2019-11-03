@@ -46,7 +46,7 @@ public abstract class BaseEnv {
 	 * Generic search method used for searching with different strategies
 	 *
 	 * @param baseAgent this represent one of the strategies used in the search method
-	 * @param visualize  boolean for visualizing the whole solution
+	 * @param visualize boolean for visualizing the whole solution
 	 * @return sequence of actions that leads to a solution
 	 */
 	public abstract String search(BaseAgent baseAgent, boolean visualize);

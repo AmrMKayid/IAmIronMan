@@ -6,11 +6,11 @@ package generics;
  */
 
 public class Node implements Comparable<Node> {
-	private State state;        // The state of the state space that this node corresponds to.
-	private Node parent;        // The parent of this node
-	private Action action;    // The operator applied to generate this node.
-	private int depth;            // The depth of the node in the tree.
-	private int pathCost;            // The path cost from the root.
+	private State state;
+	private Node parent;
+	private Action action;
+	private int depth;
+	private int pathCost;
 
 	/**
 	 * Constructs a node with the specified state, parent, action
